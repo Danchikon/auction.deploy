@@ -1,0 +1,14 @@
+http:
+  routers:
+    centrifugo:
+      service: centrifugo
+      entryPoints:
+        - websecure
+      rule: Host(`{{ env "HOST" }}`) && PathPrefix(`/api/ws`)
+      tls: 
+        certresolver: resolver
+  services:
+    centrifugo:
+      loadBalancer:
+        servers:
+          - url: http://centrifugo:8000
