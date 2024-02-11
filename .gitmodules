@@ -2,3 +2,7 @@
 	path = backend
 	url = git@github.com:Danchikon/auction.backend.git
 	branch = main
+[submodule "frontend"]
+	path = frontend
+	url = git@github.com:DenysTvardovskyi/int20h-2024-test.git
+	branch = main
