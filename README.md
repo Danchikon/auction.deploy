@@ -4,7 +4,7 @@
 Архітектура проєкта була розроблена з врахуванням можливості маштабування любого сервіса:
 
 <p>
-  <img width="1200" align="center" src="./resources/auction_architecture_concept.png" alt="demo"/>
+  <img width="800" align="center" src="./resources/auction_architecture_concept.png" alt="demo"/>
 </p>
 
 В ролі Reverse Proxy Server та Load Balancer виступає [traefik](https://traefik.io/traefik/) \
