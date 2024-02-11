@@ -13,6 +13,7 @@ services:
       HOST: $HOST
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - traefik_data:/etc/traefik/acme
       - ./configs/traefik/traefik.yaml:/etc/traefik/traefik.yaml:ro
       - ./configs/traefik/routing:/etc/traefik/routing:ro
 
@@ -110,6 +111,7 @@ services:
       - minio_data:/bitnami/minio/data
 
 volumes:
+  traefik_data:
   minio_data:
   postgres_data:
 
