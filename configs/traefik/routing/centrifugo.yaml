@@ -4,11 +4,17 @@ http:
       service: centrifugo
       entryPoints:
         - websecure
-      rule: Host(`{{ env "HOST" }}`) && PathPrefix(`/api/ws`)
+      rule: Host(`{{ env "HOST" }}`) && PathPrefix(`/centrifugo`)
       tls: 
         certresolver: resolver
+      middlewares:
+        - centrifugo-strip-prefix
   services:
     centrifugo:
       loadBalancer:
         servers:
           - url: http://centrifugo:8000
+  middlewares:
+    centrifugo-strip-prefix:
+      stripprefix:
+        prefixes: /centrifugo

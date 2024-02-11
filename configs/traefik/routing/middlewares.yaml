@@ -1,17 +1,4 @@
 http:
   middlewares:
-    jwt:
-      plugin:
-        jwt:
-          Required: true
-          PayloadFields:
-            - exp
-          Keys: 
-            - |
-              -----BEGIN PUBLIC KEY-----
-              MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE8bBX1NIdCjaM9I7q85kPxDnDG2V1
-              tlucn7zyRC5mmirabhRzQ7mI7JoPSRW9E/RC9dYvGbWcfCAwW2m7wDIaIA==
-              -----END PUBLIC KEY-----
-          JwtCookieKey: jwt
     compress:
       compress: true

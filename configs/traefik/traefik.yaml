@@ -14,13 +14,7 @@ certificatesResolvers:
       storage: /etc/traefik/acme/acme.json
       httpChallenge:
         entryPoint: web
-
-experimental:
-  plugins:
-    jwt:
-      moduleName: github.com/traefik-plugins/traefik-jwt-plugin
-      version: v0.7.0
-
+        
 providers:
   file:
     directory: /etc/traefik/routing

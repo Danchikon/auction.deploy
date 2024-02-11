@@ -86,7 +86,8 @@ services:
     hostname: centrifugo
     networks:
       - private
-      - public
+    ports:
+      - 8000:8000
     command: centrifugo -c /etc/centrifugo/config.json
     depends_on:
       postgres:
