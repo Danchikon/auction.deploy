@@ -31,7 +31,10 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_URLS: http://+:5000/
-      Swagger__RoutePrefix: backend
+      Swagger__RoutePrefix: swagger
+      Swagger__Endpoints__0__Url: https://$HOST/backend/swagger/v1/swagger.json
+      Swagger__Endpoints__0__Name: swagger api
+      Swagger__ServersUrls__0: https://$HOST/backend
       Minio__Endpoint: minio:9000
       Minio__AccessKey: $MINIO_ROOT_USER
       Minio__SecretKey: $MINIO_ROOT_PASSWORD

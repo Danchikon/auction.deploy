@@ -9,52 +9,12 @@ http:
         certresolver: resolver
       middlewares:
         - backend-strip-prefix
-    # router-msstockentriesswagger:
-    #     rule: Host(`{{ env "HOST" }}`) && Path(`/backend/swagger`)
-    #     service: backend
-    #     middlewares:
-    #       - "msstockentriesswagger-addendpoint"
-    # router-msstockentriesswaggercss:
-    #   rule: Host(`{{ env "HOST" }}`) && Path(`/backend/swagger-ui.css`)
-    #   service: backend
-    #   middlewares:
-    #     - "msstockentriesswaggercss-addendpoint"
-    # router-msstockentriesswaggerbundle:
-    #   rule: Host(`{{ env "HOST" }}`) && Path(`/backend/swagger-ui-bundle.js`)
-    #   service: backend
-    #   middlewares:
-    #     - "msstockentriesswaggerbundle-addendpoint"
-    # router-msstockentriesswaggerpreset:
-    #   rule: Host(`{{ env "HOST" }}`) && Path(`/backend/swagger-ui-standalone-preset.js`)
-    #   service: backend
-    #   middlewares:
-    #     - "msstockentriesswaggerpreset-addendpoint"
-    # router-msstockentriesswaggerdesc:
-    #   rule: Host(`{{ env "HOST" }}`) && Path(`/backend/swagger/v1`)
-    #   service: backend
-    #   middlewares:
-    #     - "msstockentriesswaggerv1-addendpoint"
   services:
     backend:
       loadBalancer:
         servers:
           - url: http://backend:5000
   middlewares:
-    msstockentriesswagger-addendpoint:
-      addPrefix:
-        prefix: "/swagger/index.html"
-    msstockentriesswaggercss-addendpoint:
-      addPrefix:
-        prefix: "/swagger/swagger-ui.css"
-    msstockentriesswaggerbundle-addendpoint:
-      addPrefix:
-        prefix: "/swagger/swagger-ui-bundle.js"
-    msstockentriesswaggerpreset-addendpoint:
-      addPrefix:
-        prefix: "/swagger/swagger-ui-standalone-preset.js"
-    msstockentriesswaggerv1-addendpoint:
-      addPrefix:
-        prefix: "/swagger/v1/swagger.json"
     backend-strip-prefix:
       stripprefix:
         prefixes: /backend
