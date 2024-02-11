@@ -15,7 +15,7 @@
     "redis_password": "redisauction",
     "consumers": [
         {
-          "name": "postgresql",
+          "name": "postgresql_consumer",
           "type": "postgresql",
           "postgresql": {
             "dsn": "postgresql://postgresauction:postgresauction@postgres:5432/auction",

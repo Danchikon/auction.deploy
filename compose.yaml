@@ -64,7 +64,8 @@ services:
       timeout: 5s
       retries: 10
     volumes:
-      - ./configs/postgresql.conf:/etc/postgresql/postgresql.conf:ro
+      - ./configs/postgres/postgresql.conf:/etc/postgresql/postgresql.conf:ro
+      - ./configs/postgres/scripts:/docker-entrypoint-initdb.d:ro
       - postgres_data:/var/lib/postgresql/data
 
   redis:
@@ -77,7 +78,7 @@ services:
       - 6380:6379
     command: redis-server /etc/redis/redis.conf
     volumes:
-      - ./configs/redis.conf:/etc/redis/redis.conf:ro
+      - ./configs/redis/redis.conf:/etc/redis/redis.conf:ro
 
   centrifugo:
     image: centrifugo/centrifugo:v5.2.2
@@ -91,7 +92,7 @@ services:
       postgres:
         condition: service_healthy
     volumes:
-      - ./configs/centrifugo.json:/etc/centrifugo/config.json:ro
+      - ./configs/centrifugo/centrifugo.json:/etc/centrifugo/config.json:ro
 
   minio:
     image: bitnami/minio:2024.2.4
