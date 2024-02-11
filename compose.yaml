@@ -4,7 +4,6 @@ services:
     container_name: traefik
     hostname: traefik
     networks:
-      - private
       - public
     ports:
       - 80:80
@@ -86,6 +85,7 @@ services:
     hostname: centrifugo
     networks:
       - private
+      - public
     ports:
       - 8000:8000
     command: centrifugo -c /etc/centrifugo/config.json
