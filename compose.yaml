@@ -25,8 +25,6 @@ services:
     hostname: frontend
     networks:
       - public
-    ports:
-      - 3000:80
 
   backend:
     build:
@@ -38,8 +36,6 @@ services:
     networks:
       - private
       - public
-    ports:
-      - 5000:5000
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_URLS: http://+:5000/
@@ -65,8 +61,6 @@ services:
     hostname: postgres
     networks:
       - private
-    ports:
-      - 5454:5432
     environment:
       POSTGRES_USER: $POSTGRES_USER
       POSTGRES_PASSWORD: $POSTGRES_PASSWORD
@@ -89,8 +83,6 @@ services:
     hostname: redis
     networks:
       - private
-    ports:
-      - 6380:6379
     command: redis-server /etc/redis/redis.conf
     volumes:
       - ./configs/redis/redis.conf:/etc/redis/redis.conf:ro
@@ -102,8 +94,6 @@ services:
     networks:
       - private
       - public
-    ports:
-      - 8000:8000
     command: centrifugo -c /etc/centrifugo/config.json
     depends_on:
       postgres:
@@ -118,8 +108,6 @@ services:
     networks:
       - private
       - public
-    ports:
-      - 9000:9000
     environment:
       MINIO_ROOT_USER: $MINIO_ROOT_USER
       MINIO_ROOT_PASSWORD: $MINIO_ROOT_PASSWORD
