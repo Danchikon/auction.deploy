@@ -41,6 +41,9 @@ services:
       Minio__PublicUrl: https://$HOST/static
       JsonWebToken__JsonWebKey: /etc/backend/jwk.json
       ConnectionStrings__Postgres: Server=postgres;Port=5432;Database=auction;Username=$POSTGRES_USER;Password=$POSTGRES_PASSWORD;
+    depends_on:
+      postgres:
+        condition: service_healthy
     volumes:
       - ./backend/jwk.json:/etc/backend/jwk.json:ro
 
@@ -57,9 +60,10 @@ services:
       POSTGRES_PASSWORD: $POSTGRES_PASSWORD
       POSTGRES_DB: auction
       PGDATA: /var/lib/postgresql/data/pgdata
+    command: postgres -c config_file=/etc/postgresql/postgresql.conf
     healthcheck:
-      test: [ CMD, pg_isready, -U, $POSTGRES_USER ]
-      interval: 1s
+      test: [ CMD, pg_isready, -U, $POSTGRES_USER, -d, auction ]
+      interval: 15s
       timeout: 5s
       retries: 10
     volumes:
