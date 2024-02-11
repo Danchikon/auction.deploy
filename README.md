@@ -62,6 +62,6 @@ docker compose up -d
 
 ## 📝 License
 
-Copyright © 2024 [Daniel Hrovinsky](https://github.com/Danchikon). \
+Copyright © 2024 [Daniel Hrovinsky](https://github.com/Danchikon)  [Denys Tvardovskyi](https://github.com/DenysTvardovskyi). \
 This project is [MIT](https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE) licensed.
 
