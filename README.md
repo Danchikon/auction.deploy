@@ -7,7 +7,7 @@
   <img width="800" align="center" src="./resources/auction_architecture_concept.png" alt="demo"/>
 </p>
 
-В ролі Reverse Proxy Server та Load Balancer виступає [traefik](https://traefik.io/traefik/) \
+В ролі Reverse Proxy Server та Load Balancer виступає [Traefik](https://traefik.io/traefik/) \
 В ролі S3 виступає [Minio]() \
 В ролі Database виступає [PostgreSQL](https://www.postgresql.org/) \
 В ролі Real-time messaging server виступає [Centrifugo](https://centrifugal.dev/) \
